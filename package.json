@@ -1,0 +1,16 @@
+{
+  "name": "getl2d",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ordosx",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cron": "^1.7.2",
+    "express": "^4.17.1"
+  }
+}

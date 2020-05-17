@@ -1,18 +1,19 @@
 /* ********** 辞書エリア ここから ********** */
 
 // 最新版のバージョン番号
-var LATEST_VERSION = "4.0.02";
-var LATEST_VERSION_WIN = "4.0.02";
-var LATEST_VERSION_MAC = "4.0.02";
+var LATEST_VERSION = "4.0.03";
+var LATEST_VERSION_WIN = "4.0.03";
+var LATEST_VERSION_MAC = "4.0.03";
 
 // 最新版の更新日・更新履歴の最新日
-var LATEST_DATE_WIN = "2019/10/15";
-var LATEST_DATE_MAC = "2019/10/15";
+var LATEST_DATE_WIN = "2019/12/12";
+var LATEST_DATE_MAC = "2019/12/12";
 
 // 過去バージョンのリスト[Key : Value]形式
 // HTML生成用の文字列：ファイル名で使用している数値
 // 追加する場合は、v3_XX_YY: "3.X.YY" として積んでいく
 var OLDER_VERSIONS_WIN = {
+    v4_00_02 : "4.0.02",
     v4_00_01 : "4.0.01",
     v4_00_00 : "4.0.00",
     v3_03_03 : "3.3.03_1",
@@ -20,6 +21,7 @@ var OLDER_VERSIONS_WIN = {
 }
 
 var OLDER_VERSIONS_MAC = {
+    v4_00_02 : "4.0.02",
     v4_00_01 : "4.0.01",
     v4_00_00 : "4.0.00",
 	v3_03_02 : "3.3.03_1",

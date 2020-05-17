@@ -1,1 +1,3 @@
-node_modules/
+crawer/node_modules/
+ui-new/node_modules/
+ui-new/dist/

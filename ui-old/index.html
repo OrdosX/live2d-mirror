@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel=icon href=/favicon-32x32.png>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <title>获取Live2D</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?b60452814eb29e9b73f8d31fc37bb0f1";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="page-header">
+                    <h1>获取Live2D</h1>
+                </div>
+                <h2>Windows</h2>
+                <ul id="win"></ul>
+                <h2>Mac OS</h2>
+                <ul id="mac"></ul>
+                <p>
+                    本系统会在每一天通过官网自动更新链接，为由于ajax.googleapis.com被墙而无法点击按钮下载Live2D Cubism的同学服务。
+                </p>
+                <p>
+                    详细情况，请点击<a href="https://www.bilibili.com/read/cv3927825">我的B站专栏</a>
+                </p>
+                <p>
+                    <b>注1：</b>备份下载点也在国外，浏览器内置下载较慢，建议使用多线程下载工具（如<a href="https://motrix.app/zh-CN/">Motrix</a>）
+                </p>
+                <p>
+                    <b>注2：</b>如果出现文件打不开的情况，请先借助<a href="https://emn178.github.io/online-tools/md5_checksum.html">在线校验工具</a>生成你所下载的文件的MD5校验码并与上面给出的值进行比对。如果不同则是下载过程出错，应当重新下载。如果相同，请前往专栏评论区反馈。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="navbar-fixed-bottom" style="background-color:lightgrey">
+        <br>
+        <div class="container">
+            <div class="pull-left">
+                <a class="text-muted" href="https://github.com/OrdosX/Get-Live2D">Github仓库</a>
+            </div>
+            <div class="pull-right">
+                <span class="text-muted">由<a class="text-muted" href="https://www.ordosx.tech">OrdosX</a>用</span><span
+                    class="glyphicon glyphicon-heart"></span><span class="text-muted">打造</span>
+            </div>
+        </div>
+        <br>
+    </footer>
+</body>
+
+<script>
+    axios.get('/api/links').then(res => {
+        for (let i in res.data.WIN) {
+            let x = res.data.WIN[i].split("|");
+            $("#win").append(`<li>` + x[0] + `：<a href="` + x[1] + `">` + x[1] + `</a> / <a href="` + x[2] + `">备份下载点</a><br>MD5: `+x[3]+`</li>`)
+        }
+        for (let i in res.data.MAC) {
+            let x = res.data.MAC[i].split("|");
+            $("#mac").append(`<li>` + x[0] + `：<a href="` + x[1] + `">` + x[1] + `</a> / <a href="` + x[2] + `">备份下载点</a><br>MD5: `+x[3]+`</li>`)
+        }
+    })
+</script>
+
+</html>

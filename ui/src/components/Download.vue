@@ -47,7 +47,8 @@
 					<b-card-title>中文版</b-card-title>
 					<b-card-text>
 						<b-button-group>
-							<b-button @click="download('4.0.05', 'zh')" variant="success">4.0.05</b-button>
+							<b-button @click="download('4.0.06', 'zh')" variant="success">4.0.06</b-button>
+							<b-button @click="download('4.0.05', 'zh')" v-if="!usingMirror">4.0.05</b-button>
 							<b-button @click="download('4.0.04', 'zh')" v-if="!usingMirror">4.0.04</b-button>
 							<b-button @click="download('4.0.03', 'zh')" variant="success">4.0.03</b-button>
 							<b-button @click="download('4.0.02', 'zh')" v-if="!usingMirror">4.0.02</b-button>
@@ -58,7 +59,8 @@
 					<b-card-title>日文版</b-card-title>
 					<b-card-text>
 						<b-button-group>
-							<b-button @click="download('4.0.05', 'jp')" variant="success">4.0.05</b-button>
+							<b-button @click="download('4.0.06', 'jp')" variant="success">4.0.06</b-button>
+							<b-button @click="download('4.0.05', 'jp')" v-if="!usingMirror">4.0.05</b-button>
 							<b-button @click="download('4.0.04', 'jp')" v-if="!usingMirror">4.0.04</b-button>
 							<b-button @click="download('4.0.03', 'jp')" variant="success">4.0.03</b-button>
 							<b-button @click="download('4.0.02', 'jp')" v-if="!usingMirror">4.0.02</b-button>
@@ -71,7 +73,8 @@
 					<b-card-title>英文版</b-card-title>
 					<b-card-text>
 						<b-button-group>
-							<b-button @click="download('4.0.05', 'en')" variant="success">4.0.05</b-button>
+							<b-button @click="download('4.0.06', 'en')" variant="success">4.0.06</b-button>
+							<b-button @click="download('4.0.05', 'en')" v-if="!usingMirror">4.0.05</b-button>
 							<b-button @click="download('4.0.04', 'en')" v-if="!usingMirror">4.0.04</b-button>
 							<b-button @click="download('4.0.03', 'en')" variant="success">4.0.03</b-button>
 							<b-button @click="download('4.0.02', 'en')" v-if="!usingMirror">4.0.02</b-button>

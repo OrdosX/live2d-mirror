@@ -1,5 +1,13 @@
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 module.exports = {
+  chainWebpack: config => {
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].title= '获取Live2D'
+        return args
+      })
+  },
   productionSourceMap: false,
   configureWebpack: config => {
     if (process.env.NODE_ENV === 'production') {

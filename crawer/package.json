@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run": "node app.js"
   },
   "author": "ordosx",
   "repository": {
@@ -13,9 +13,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1",
-    "cron": "^1.7.2",
-    "express": "^4.17.1",
-    "node-downloader-helper": "^1.0.12"
+    "axios": "^0.21.1"
   }
 }

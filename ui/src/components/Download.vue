@@ -107,12 +107,12 @@
 </template>
 
 <script>
-	import versions from '../assets/versions.json'
+	import axios from 'axios'
 	export default {
 		name: 'Download',
 		data: function() {
 			return {
-				versions,
+				versions: {},
 				system: 0,
 				usingMirror: false,
 				overlayVisible: false,
@@ -161,6 +161,11 @@
 				//console.log(downloadingURL)
 				this.$bvModal.show('downloading');
 			}
+		},
+		mounted() {
+			axios.get('/versions.json').then(res => {
+				this.versions = res.data
+			})
 		}
 	}
 </script>

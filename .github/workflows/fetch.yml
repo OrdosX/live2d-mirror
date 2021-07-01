@@ -38,5 +38,6 @@ jobs:
           
       - name: Attempt to download latest files if not persent
         run: |
+          cd crawler
           chmod +x update.sh
           ./update.sh

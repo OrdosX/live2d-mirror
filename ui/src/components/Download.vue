@@ -47,27 +47,27 @@
 					<b-card-title>中文版</b-card-title>
 					<b-card-text>
 						<b-button-group>
-							<b-button @click="download('4.0.07', 'zh')" variant="success">4.0.07</b-button>
-							<b-button @click="download('4.0.06', 'zh')" variant="success">4.0.06</b-button>
-							<b-button @click="download('4.0.05', 'zh')" v-if="!usingMirror">4.0.05</b-button>
-							<b-button @click="download('4.0.04', 'zh')" v-if="!usingMirror">4.0.04</b-button>
-							<b-button @click="download('4.0.03', 'zh')" variant="success">4.0.03</b-button>
-							<b-button @click="download('4.0.02', 'zh')" v-if="!usingMirror">4.0.02</b-button>
-							<b-button @click="download('4.0.01', 'zh')" v-if="!usingMirror">4.0.01</b-button>
-							<b-button @click="download('4.0.00', 'zh')" v-if="!usingMirror">4.0.00</b-button>
+							<b-button @click="download(versions.latestVersion, 'zh')" variant="success">
+								{{versions.latestVersion}}
+							</b-button>
+							<b-dropdown text="非最新的4.x.x" v-if="!usingMirror">
+								<b-dropdown-item v-for="version in versions.versions" :key="version" @click="download(version, 'zh')">
+									{{version}}
+								</b-dropdown-item>
+							</b-dropdown>
 						</b-button-group>
 					</b-card-text>
 					<b-card-title>日文版</b-card-title>
 					<b-card-text>
 						<b-button-group>
-							<b-button @click="download('4.0.07', 'jp')" variant="success">4.0.07</b-button>
-							<b-button @click="download('4.0.06', 'jp')" variant="success">4.0.06</b-button>
-							<b-button @click="download('4.0.05', 'jp')" v-if="!usingMirror">4.0.05</b-button>
-							<b-button @click="download('4.0.04', 'jp')" v-if="!usingMirror">4.0.04</b-button>
-							<b-button @click="download('4.0.03', 'jp')" variant="success">4.0.03</b-button>
-							<b-button @click="download('4.0.02', 'jp')" v-if="!usingMirror">4.0.02</b-button>
-							<b-button @click="download('4.0.01', 'jp')" v-if="!usingMirror">4.0.01</b-button>
-							<b-button @click="download('4.0.00', 'jp')" v-if="!usingMirror">4.0.00</b-button>
+							<b-button @click="download(versions.latestVersion, 'jp')" variant="success">
+								{{versions.latestVersion}}
+							</b-button>
+							<b-dropdown text="非最新的4.x.x" v-if="!usingMirror">
+								<b-dropdown-item v-for="version in versions.versions" :key="version" @click="download(version, 'jp')">
+									{{version}}
+								</b-dropdown-item>
+							</b-dropdown>
 							<b-button @click="download('3.3.03_1', 'jp')" variant="success">3.3.03_1</b-button>
 							<b-button @click="download('3.2.07_1', 'jp')" v-if="!usingMirror">3.2.07_1</b-button>
 						</b-button-group>
@@ -75,14 +75,14 @@
 					<b-card-title>英文版</b-card-title>
 					<b-card-text>
 						<b-button-group>
-							<b-button @click="download('4.0.07', 'en')" variant="success">4.0.07</b-button>
-							<b-button @click="download('4.0.06', 'en')" variant="success">4.0.06</b-button>
-							<b-button @click="download('4.0.05', 'en')" v-if="!usingMirror">4.0.05</b-button>
-							<b-button @click="download('4.0.04', 'en')" v-if="!usingMirror">4.0.04</b-button>
-							<b-button @click="download('4.0.03', 'en')" variant="success">4.0.03</b-button>
-							<b-button @click="download('4.0.02', 'en')" v-if="!usingMirror">4.0.02</b-button>
-							<b-button @click="download('4.0.01', 'en')" v-if="!usingMirror">4.0.01</b-button>
-							<b-button @click="download('4.0.00', 'en')" v-if="!usingMirror">4.0.00</b-button>
+							<b-button @click="download(versions.latestVersion, 'en')" variant="success">
+								{{versions.latestVersion}}
+							</b-button>
+							<b-dropdown text="非最新的4.x.x" v-if="!usingMirror">
+								<b-dropdown-item v-for="version in versions.versions" :key="version" @click="download(version, 'en')">
+									{{version}}
+								</b-dropdown-item>
+							</b-dropdown>
 							<b-button @click="download('3.3.03_1', 'en')" variant="success">3.3.03_1</b-button>
 							<b-button @click="download('3.2.07_1', 'en')" v-if="!usingMirror">3.2.07_1</b-button>
 						</b-button-group>
@@ -107,10 +107,12 @@
 </template>
 
 <script>
+	import versions from '../assets/versions.json'
 	export default {
 		name: 'Download',
 		data: function() {
 			return {
+				versions,
 				system: 0,
 				usingMirror: false,
 				overlayVisible: false,
@@ -132,8 +134,8 @@
 			}
 		},
 		watch: {
-			system: function(o, n) {
-				if (o > 1 && n > 1) {
+			system: function(n, o) {
+				if (n > 1 && o > 1) {
 					this.overlayVisible = true;
 					setTimeout(() => {
 						this.overlayVisible = false;

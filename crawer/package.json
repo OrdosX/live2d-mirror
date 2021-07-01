@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "run": "node app.js"
+    "start": "node app.js"
   },
   "author": "ordosx",
   "repository": {
@@ -12,7 +12,5 @@
     "url": "https://github.com/OrdosX/Get-Live2D"
   },
   "license": "MIT",
-  "dependencies": {
-    "axios": "^0.21.1"
-  }
+  "dependencies": {}
 }

@@ -35,6 +35,7 @@ jobs:
         run: |
           cd crawler
           node app.js
+          cat versions.json
           
       - name: Attempt to download latest files if not persent
         run: |

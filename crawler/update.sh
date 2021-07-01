@@ -7,4 +7,6 @@ then
     mkdir files
     wget -q -i latestURL.txt -P files/
     ossutil cp -rf files/ oss://getl2d-ordosx/files/
+    ossutil cp -f versions.json oss://getl2d-ordosx/
+    ossutil cp -f latestVersion.txt oss://getl2d-ordosx/
 fi

@@ -1,6 +1,6 @@
-crawer/latestURL.txt
-crawer/latestVersion.txt
-crawer/versions.json
+crawler/latestURL.txt
+crawler/latestVersion.txt
+crawler/versions.json
 ui/node_modules/
 ui/dist/
 ui/public/latestVersion.txt

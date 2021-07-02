@@ -25,12 +25,19 @@ jobs:
           access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
       
       - name: Generate links and versions
+        id: generate_versions
         run: |
           cd crawler
           node app.js
+          echo "::set-output name=currentVersion::$(cat latestVersion.txt)"
+          echo "::set-output name=deployedVersion::$(curl -s https://getl2d.ordosx.tech/latestVersion.txt)"
           
       - name: If there is a new version, update the file
+        if: ${{ steps.generate_versions.outputs.currentVersion != steps.generate_versions.outputs.deployedVersion }}
         run: |
           cd crawler
-          chmod +x update.sh
-          ./update.sh
+          mkdir files
+          wget -q -i latestURL.txt -P files/
+          ossutil cp -rf files/ oss://getl2d-ordosx/files/
+          ossutil cp -f versions.json oss://getl2d-ordosx/
+          ossutil cp -f latestVersion.txt oss://getl2d-ordosx/

@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <!-- force https -->
+    <!-- 强制https -->
     <script>if(window.location.href.split("://")[0]=="http") window.location.href = window.location.href.replace("http://", "https://");</script>
+    <!-- 百度统计 -->
+    <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?b60452814eb29e9b73f8d31fc37bb0f1";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();</script>
   </head>
   <body>
     <noscript>

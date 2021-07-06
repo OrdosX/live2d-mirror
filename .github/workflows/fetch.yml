@@ -16,14 +16,7 @@ jobs:
         uses: actions/setup-node@v2.2.0
         with:
           node-version: '14'
-          
-      - name: Setup OSSUTIL environment
-        uses: yizhoumo/setup-ossutil@v1.0.2
-        with:
-          endpoint: ${{ secrets.OSS_ENDPOINT }}
-          access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
-          access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-      
+
       - name: Generate links and versions
         id: generate_versions
         run: |
@@ -31,7 +24,16 @@ jobs:
           node app.js
           echo "::set-output name=currentVersion::$(cat latestVersion.txt)"
           echo "::set-output name=deployedVersion::$(curl -s https://getl2d.ordosx.tech/latestVersion.txt)"
-          
+          cat latestVersion.txt
+
+      - name: Setup OSSUTIL environment
+        uses: yizhoumo/setup-ossutil@v1.0.2
+        if: ${{ steps.generate_versions.outputs.currentVersion != steps.generate_versions.outputs.deployedVersion }}
+        with:
+          endpoint: ${{ secrets.OSS_ENDPOINT }}
+          access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+
       - name: If there is a new version, update the file
         if: ${{ steps.generate_versions.outputs.currentVersion != steps.generate_versions.outputs.deployedVersion }}
         run: |

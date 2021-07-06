@@ -3,7 +3,7 @@
 		<b-card-group deck>
 			<b-card>
 				<b-collapse v-model="iconVisible">
-					<b-card-img :src="require('../assets/winx86.png')"></b-card-img>
+					<b-card-img :src="require('@/assets/winx86.png')"></b-card-img>
 				</b-collapse>
 				<b-card-title>Windows 32位</b-card-title>
 				<b-button variant="light" block @click="system === 1 ? system = 0 : system = 1">
@@ -13,7 +13,7 @@
 			</b-card>
 			<b-card>
 				<b-collapse v-model="iconVisible">
-					<b-card-img :src="require('../assets/winx64.png')"></b-card-img>
+					<b-card-img :src="require('@/assets/winx64.png')"></b-card-img>
 				</b-collapse>
 				<b-card-title>Windows 64位</b-card-title>
 				<b-button variant="light" block @click="system === 2 ? system = 0 : system = 2">
@@ -23,7 +23,7 @@
 			</b-card>
 			<b-card>
 				<b-collapse v-model="iconVisible">
-					<b-card-img :src="require('../assets/mac.png')"></b-card-img>
+					<b-card-img :src="require('@/assets/mac.png')"></b-card-img>
 				</b-collapse>
 				<b-card-title>Mac</b-card-title>
 				<b-button variant="light" block @click="system === 3 ? system = 0 : system = 3">
@@ -101,7 +101,7 @@
 			<p>遇到困难？移步<a href="https://www.bilibili.com/read/cv3927825">B站专栏</a>反馈</p>
 			<hr />
 			<p>绝赞用爱发电中，如果对你有帮助，何不……(o゜▽゜)o☆</p>
-			<b-img :src="require('../assets/money.png')" fluid alt="恰饭"></b-img>
+			<b-img :src="require('@/assets/money.png')" fluid alt="恰饭"></b-img>
 		</b-modal>
 	</b-col>
 </template>

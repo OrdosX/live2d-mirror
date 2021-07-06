@@ -12,9 +12,9 @@
 </template>
 
 <script>
-	import Download from "./components/Download.vue";
-	import Announce from "./components/Announce.vue";
-	import About from "./components/About.vue";
+	import Download from "@/components/Download.vue";
+	import Announce from "@/components/Announce.vue";
+	import About from "@/components/About.vue";
 	export default {
 		name: 'app',
 		components:{

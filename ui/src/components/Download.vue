@@ -35,7 +35,8 @@
 		<b-collapse v-model="downloadVisible">
 			<b-overlay :show="overlayVisible">
 				<b-card v-if="system === 1">
-					新版本均不支持32位系统，请自行下载<a href="http://sites.cybernoids.jp/cubism-editor2/download">Cubism 2</a>
+					新版本均不支持32位系统，最后一个支持的版本是6年前发布的<a href="https://sites.google.com/cybernoids.jp/cubism-editor2-e/editor-2-1/download">Cubism 2.1（已被墙）</a>。<br>
+					用旧版本很容易出玄学bug，如果你执意下载，用这个链接：<a href="https://getl2d.ordosx.tech/files/Live2D_Cubism_Setup_2.1.16_2_zh.exe">中文版</a> <a href="https://getl2d.ordosx.tech/files/Live2D_Cubism_Setup_2.1.16_2_en.exe">英文版</a>
 				</b-card>
 				<b-card v-if="system === 2 || system === 3">
 					<b-button variant="light-outline" @click="usingMirror = !usingMirror" class="float-right" v-b-tooltip.hover title="官方链接较慢则用镜像链接">

@@ -56,6 +56,7 @@
 									{{version}}
 								</b-dropdown-item>
 							</b-dropdown>
+							<b-button @click="download('4.1.05', 'zh')" variant="success">4.1.05</b-button>
 						</b-button-group>
 					</b-card-text>
 					<b-card-title>日文版</b-card-title>
@@ -69,6 +70,7 @@
 									{{version}}
 								</b-dropdown-item>
 							</b-dropdown>
+							<b-button @click="download('4.1.05', 'jp')" variant="success">4.1.05</b-button>
 							<b-button @click="download('3.3.03_1', 'jp')" variant="success">3.3.03_1</b-button>
 							<b-button @click="download('3.2.07_1', 'jp')" v-if="!usingMirror">3.2.07_1</b-button>
 						</b-button-group>
@@ -84,6 +86,7 @@
 									{{version}}
 								</b-dropdown-item>
 							</b-dropdown>
+							<b-button @click="download('4.1.05', 'en')" variant="success">4.1.05</b-button>
 							<b-button @click="download('3.3.03_1', 'en')" variant="success">3.3.03_1</b-button>
 							<b-button @click="download('3.2.07_1', 'en')" v-if="!usingMirror">3.2.07_1</b-button>
 						</b-button-group>
@@ -152,11 +155,15 @@
 				} else {
 					this.downloadingURL += 'https://cubism.live2d.com/editor/bin/Live2D_Cubism_Setup_';
 				}
-				this.downloadingURL += version + '_' + language + '.';
+				this.downloadingURL += version;
+				const NON_MULTILINGUAL_VERSIONS=["4.1.05","4.1.05 beta2","4.1.05 beta1","4.1.04","4.1.03","4.1.02","4.1.02 beta1","4.1.01","4.1.01 beta1","4.1.00","4.1.00 beta1","4.0.09","4.0.08","4.0.08 beta1","4.0.07","4.0.07 beta1","4.0.06","4.0.06 beta1","4.0.05","4.0.05 beta1","4.0.04","4.0.04-beta1","4.0.03","4.0.02","4.0.01","4.0.00","3.3.03_1","3.2.07_1"];
+				if (NON_MULTILINGUAL_VERSIONS.includes(version)) {
+					this.downloadingURL += '_' + language;
+				}
 				if (this.system === 3) {
-					this.downloadingURL += 'pkg';
+					this.downloadingURL += '.pkg';
 				} else {
-					this.downloadingURL += 'exe';
+					this.downloadingURL += '.exe';
 				}
 				window.open(this.downloadingURL, '_blank');
 				//console.log(downloadingURL)

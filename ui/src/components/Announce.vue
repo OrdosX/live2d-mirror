@@ -12,7 +12,7 @@
 
 <script>
 	export default {
-		name: 'Announce',
+		name: 'AnnounceBlock',
 	}
 </script>
 

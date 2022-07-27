@@ -113,7 +113,7 @@
 <script>
 	import axios from 'axios'
 	export default {
-		name: 'Download',
+		name: 'DownloadBlock',
 		data: function() {
 			return {
 				versions: {},

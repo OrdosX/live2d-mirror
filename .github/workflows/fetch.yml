@@ -22,9 +22,10 @@ jobs:
         run: |
           cd crawler
           node app.js
-          echo "::set-output name=currentVersion::$(cat latestVersion.txt)"
-          echo "::set-output name=deployedVersion::$(curl -s https://getl2d.ordosx.tech/latestVersion.txt)"
-          cat latestVersion.txt
+          echo "currentVersion=$(cat latestVersion.txt)"
+          echo "currentVersion=$(cat latestVersion.txt)" >> $GITHUB_OUTPUT
+          echo "deployedVersion=$(curl -s https://getl2d.ordosx.tech/latestVersion.txt)"
+          echo "deployedVersion=$(curl -s https://getl2d.ordosx.tech/latestVersion.txt)" >> $GITHUB_OUTPUT
 
       - name: Setup OSSUTIL environment
         uses: yizhoumo/setup-ossutil@v1.0.2
